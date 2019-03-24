@@ -1,0 +1,127 @@
+{
+  "schedule": [
+    {
+      "date": "2047-05-17",
+      "groups": [
+        {
+          "time": "Last run",
+          "sessions": [
+            {
+              "name": "Last run:",
+              "timeStart": "8:00 am",
+              "speakerNames": ["Ted Turtle"],
+              "description": "",
+              "timeEnd": "Cluj",
+              "location": "Napoca",
+              "tracks": ["Last run"],
+              "id": "1"
+            }
+          ]
+        },
+        {
+          "time": "This week",
+          "sessions": [
+            {
+              "name": "Morning run",
+              "location": "Manastur - Cluj",
+              "description": "",
+              "speakerNames": ["Ted Turtle"],
+              "timeStart": "9:30 am",
+              "timeEnd": "10:30 am",
+              "tracks": ["Morning run"],
+              "id": "2"
+            },
+            {
+              "name": "Evening run",
+              "location": "Central Park - Cluj",
+              "description": "",
+              "speakerNames": ["Rachel Rabbit"],
+              "timeStart": "8:45 pm",
+              "timeEnd": "9:45 pm",
+              "tracks": ["Evening run"],
+              "id": "3"
+            },
+            {
+              "name": "Midday run",
+              "location": "Central Park - Cluj",
+              "description": "",
+              "speakerNames": ["Ellie Elephant"],
+              "timeStart": "12:00 pm",
+              "timeEnd": "13:00",
+              "tracks": ["Midday run"],
+              "id": "4"
+            }
+          ]
+        },
+        {
+          "time": "Previous weeks",
+          "sessions": [
+            {
+              "name": "Morning run",
+              "location": "Central Park - Cluj",
+              "description": "",
+              "speakerNames": ["Eva Eagle", "Lionel Lion"],
+              "timeStart": "10:00 am",
+              "timeEnd": "10:30 am",
+              "tracks": ["Morning run"],
+              "id": "5"
+            },
+            {
+              "name": "Morning run",
+              "location": "Manastur - Cluj",
+              "description": "",
+              "speakerNames": ["Rachel Rabbit"],
+              "timeStart": "10:15 am",
+              "timeEnd": "10:30 am",
+              "tracks": ["Morning run"],
+              "id": "6"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+
+  "speakers": [
+    {
+      "name": "Conf. Dr. Popescu Ion",
+      "profilePic": "/assets/img/speakers/bear.jpg",
+      "twitter": "ionicframework",
+      "about": "Medic specialist Genetică medicală (2010), Șef de lucrări la Disciplina Genetică Medicală UMF Cluj, Doctor în Medicină (2011) ",
+      "location": "Everywhere",
+      "email": "burt@example.com",
+      "phone": "+1-541-754-3010",
+      "id": "1"
+    },
+    {
+      "name": "Dr. Pop Ioana",
+      "profilePic": "/assets/img/speakers/cheetah.png",
+      "twitter": "ionicframework",
+      "about": "Medic primar ortoped",
+      "location": "Everywhere",
+      "email": "charlie@example.com",
+      "phone": "+1-541-754-3010",
+      "id": "2"
+    }
+ 
+  ],
+
+  "map": [
+    {
+      "name": "Monona Terrace Convention Center",
+      "lat": 43.071584,
+      "lng": -89.38012,
+      "center": true
+    },
+    {
+      "name": "Ionic HQ",
+      "lat": 43.074395,
+      "lng": -89.381056
+    },
+    {
+      "name": "Afterparty - Brocach Irish Pub",
+      "lat": 43.07336,
+      "lng": -89.38335
+    }
+  ]
+}

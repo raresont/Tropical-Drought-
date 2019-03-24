@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Hooray!</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="presentPopover($event)">
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Pacifico" />
+<ion-content>
+  <p style="color:brown;font-size:5vh;font-family: Pacifico" text-center> Show others your art! </p>
+  <div class="about-header">
+    <img id="toRemove" src="assets/img/prunc.jpg" style="top:70vh;" alt="ionic logo">
+  </div>
+
+  <ion-row text-center>
+      <ion-col col-3></ion-col>
+         <ion-col  col-2>
+            <ion-fab-button color="favorite" >
+                <ion-icon  name="logo-snapchat"></ion-icon>
+              </ion-fab-button>
+         </ion-col>
+         <ion-col  col-2>
+            <ion-fab-button color="facebook" >
+                <ion-icon name="logo-facebook"></ion-icon>
+              </ion-fab-button>
+         </ion-col>
+         <ion-col  col-2>
+            <ion-fab-button color="vimeo" >
+                <ion-icon name="logo-instagram"></ion-icon>
+              </ion-fab-button>
+         </ion-col>
+   <ion-col col-3></ion-col>
+   </ion-row>
+
+      <ion-list lines="none">
+
+        <ion-item>
+          <ion-icon name="flame" slot="start"></ion-icon>
+          <ion-label>Calories</ion-label>
+          <ion-text style="float:right;">572</ion-text>
+        </ion-item> 
+        <ion-item>
+          <ion-icon name="contacts" slot="start"></ion-icon>
+          <ion-label>Average Speed</ion-label>
+          <ion-text style="float:right;">11 km/h</ion-text>
+        </ion-item> 
+        <ion-item>
+            <ion-icon name="timer" slot="start"></ion-icon>
+            <ion-label >Time</ion-label>
+            <ion-text  style="color:green;float:right;">23 min</ion-text>
+          </ion-item> 
+        <ion-item>
+            <ion-icon name="timer" slot="start"></ion-icon>
+            <ion-label>All-time average</ion-label>
+            <ion-text style="float:right;">- 72 sec</ion-text>
+          </ion-item> 
+      </ion-list>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+</ion-content>

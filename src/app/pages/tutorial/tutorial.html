@@ -1,0 +1,53 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button color='primary' (click)="startApp()" [hidden]="!showSkip">Skip</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-slides #slides (ionSlideWillChange)="onSlideChangeStart($event)" pager="false">
+    <ion-slide>
+      <img src="assets/img/logoTeam.jpg" class="slide-image" />
+      <h2 class="slide-title">
+        Welcome to
+        <b>geoFrame</b>
+      </h2>
+      <p>
+        The solution for your running motivation.
+      </p>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="assets/img/prunc.jpg" class="slide-image" />
+      <h2 class="slide-title">Add your route!</h2>
+      <p>
+        Create/View routes with a meaning.
+      </p>
+
+      <ion-button fill="clear" (click)="startApp()">
+        Continue
+        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+        </ion-button>
+    </ion-slide>
+<!--
+    <ion-slide>
+      <img src="assets/img/ica-slidebox-img-3.png" class="slide-image" />
+      <h2 class="slide-title">What is Ionic Pro?</h2>
+      <p>
+        <b>Ionic Pro</b> is a powerful set of services and features built on top of Ionic Framework that brings a totally new
+        level of app development agility to mobile dev teams.</p>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="assets/img/ica-slidebox-img-4.png" class="slide-image" />
+      <h2 class="slide-title">Ready to Play?</h2>
+      <ion-button fill="clear" (click)="startApp()">
+        Continue
+        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+      </ion-button>
+    </ion-slide>
+  -->
+  </ion-slides>
+</ion-content>

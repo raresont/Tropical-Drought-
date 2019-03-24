@@ -1,0 +1,39 @@
+.about-header {
+  background-color: var(rgba(235, 174, 61, 0.815));
+  //padding: 16px;
+  width: 100%;
+  text-align: center;
+}
+
+ion-fab {
+  .fab { display: inline-block !important}
+}
+
+.about-header img {
+  max-width: 200px;
+  //padding: 25px 5px 20px 0;
+}
+
+.about-info p {
+  color: var(--ion-color-medium);
+  text-align: left;
+}
+
+.about-info ion-icon {
+  color: var(--ion-color-primary);
+}
+
+.ios .about-info {
+  text-align: center;
+}
+
+#food {
+  filter: gray;
+  /* IE6-9 */
+  -webkit-filter: grayscale(1);
+  height:10vh;
+}
+#food:focus {
+  filter: none;
+  -webkit-filter: none;
+}
