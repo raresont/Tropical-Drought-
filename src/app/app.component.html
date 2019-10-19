@@ -8,7 +8,7 @@
         </ion-toolbar>
       </ion-header>
       <ion-content class="bg-style">
-
+<!--
         <ion-list>
           <ion-list-header>
             Navigate
@@ -55,29 +55,30 @@
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
-        <ion-list>
-          <ion-list-header>
-            Tutorial
-          </ion-list-header>
-          <ion-menu-toggle auto-hide="false">
-            <ion-item button (click)="openTutorial()">
-              <ion-icon slot="start" name="hammer"></ion-icon>
-              <ion-label>Show Tutorial</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-          <ion-menu-toggle auto-hide="false">
-            <ion-item routerLink="/support">
-              <ion-icon slot="start" name="podium"></ion-icon>
-              <ion-label>
-                Ranking
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
+          <ion-list>
+            <ion-list-header>
+              Tutorial
+            </ion-list-header>
+            <ion-menu-toggle auto-hide="false">
+              <ion-item button (click)="openTutorial()">
+                <ion-icon slot="start" name="hammer"></ion-icon>
+                <ion-label>Show Tutorial</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+            <ion-menu-toggle auto-hide="false">
+              <ion-item routerLink="/support">
+                <ion-icon slot="start" name="podium"></ion-icon>
+                <ion-label>
+                  Ranking
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
+        -->
       </ion-content>
     </ion-menu>
 
-    <ion-router-outlet main ></ion-router-outlet>
+    <ion-router-outlet main></ion-router-outlet>
 
   </ion-split-pane>
 
