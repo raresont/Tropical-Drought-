@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Hooray!</ion-title>
+    <ion-title>Agriculture</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="presentPopover($event)">
         <ion-icon slot="icon-only" name="more"></ion-icon>
@@ -12,56 +12,34 @@
   </ion-toolbar>
 </ion-header>
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Pacifico" />
-<ion-content>
-  <p style="color:brown;font-size:5vh;font-family: Pacifico" text-center> Show others your art! </p>
-  <div class="about-header">
-    <img id="toRemove" src="assets/img/prunc.jpg" style="top:70vh;" alt="ionic logo">
-  </div>
+<ion-content class="bg-style">
+  <div #mapCanvas class="map-canvas"></div>
+  <script>
 
-  <ion-row text-center>
-      <ion-col col-3></ion-col>
-         <ion-col  col-2>
-            <ion-fab-button color="favorite" >
-                <ion-icon  name="logo-snapchat"></ion-icon>
-              </ion-fab-button>
-         </ion-col>
-         <ion-col  col-2>
-            <ion-fab-button color="facebook" >
-                <ion-icon name="logo-facebook"></ion-icon>
-              </ion-fab-button>
-         </ion-col>
-         <ion-col  col-2>
-            <ion-fab-button color="vimeo" >
-                <ion-icon name="logo-instagram"></ion-icon>
-              </ion-fab-button>
-         </ion-col>
-   <ion-col col-3></ion-col>
-   </ion-row>
+    var marker;
 
-      <ion-list lines="none">
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map-canvas'), {
+        zoom: 13,
+        center: {lat: 59.325, lng: 18.070}
+      });
 
-        <ion-item>
-          <ion-icon name="flame" slot="start"></ion-icon>
-          <ion-label>Calories</ion-label>
-          <ion-text style="float:right;">572</ion-text>
-        </ion-item> 
-        <ion-item>
-          <ion-icon name="contacts" slot="start"></ion-icon>
-          <ion-label>Average Speed</ion-label>
-          <ion-text style="float:right;">11 km/h</ion-text>
-        </ion-item> 
-        <ion-item>
-            <ion-icon name="timer" slot="start"></ion-icon>
-            <ion-label >Time</ion-label>
-            <ion-text  style="color:green;float:right;">23 min</ion-text>
-          </ion-item> 
-        <ion-item>
-            <ion-icon name="timer" slot="start"></ion-icon>
-            <ion-label>All-time average</ion-label>
-            <ion-text style="float:right;">- 72 sec</ion-text>
-          </ion-item> 
-      </ion-list>
+      marker = new google.maps.Marker({
+        map: map,
+        draggable: true,
+        animation: google.maps.Animation.DROP,
+        position: {lat: 59.327, lng: 18.067}
+      });
+      marker.addListener('click', toggleBounce);
+    }
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
+    function toggleBounce() {
+      if (marker.getAnimation() !== null) {
+        marker.setAnimation(null);
+      } else {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+      }
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=visualization"></script>
 </ion-content>

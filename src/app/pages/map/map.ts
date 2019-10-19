@@ -13,7 +13,25 @@ var polyline = null;
 export class MapPage implements AfterViewInit {
   submitted = false;
   map = null;
- 
+   gradient = [
+    'rgba(0, 255, 255, 0)',
+    'rgba(0, 255, 255, 1)',
+    'rgba(0, 191, 255, 1)',
+    'rgba(0, 127, 255, 1)',
+    'rgba(0, 63, 255, 1)',
+    'rgba(0, 0, 255, 1)',
+    'rgba(0, 0, 223, 1)',
+    'rgba(0, 0, 191, 1)',
+    'rgba(0, 0, 159, 1)',
+    'rgba(0, 0, 127, 1)',
+    'rgba(63, 0, 91, 1)',
+    'rgba(127, 0, 91, 0.7)',
+    'rgba(127, 0, 91, 0.7)',
+    'rgba(127, 0, 91, 0.7)' //255
+];
+   gradientStep = -1;
+   heatmap;
+
   @ViewChild('mapCanvas') mapElement: ElementRef;
 
   constructor(
@@ -23,198 +41,34 @@ export class MapPage implements AfterViewInit {
     
   }
 
-
   async ngAfterViewInit() {
     const googleMaps = await getGoogleMaps(
       'AIzaSyB8pf6ZdFQj5qw7rc_HSGrhUwQKfIe9ICw'
     );
-    
-    var styledMapType = new googleMaps.StyledMapType(
-      [
-        {
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#212121"
-            }
-          ]
-        },
-        {
-          "elementType": "labels.icon",
-          "stylers": [
-            {
-              "visibility": "off"
-            }
-          ]
-        },
-        {
-          "elementType": "labels.text.fill",
-          "stylers": [
-            {
-              "color": "#757575"
-            }
-          ]
-        },
-        {
-          "elementType": "labels.text.stroke",
-          "stylers": [
-            {
-              "color": "#212121"
-            }
-          ]
-        },
-        {
-          "featureType": "administrative",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#757575"
-            }
-          ]
-        },
-        {
-          "featureType": "administrative.country",
-          "elementType": "labels.text.fill",
-          "stylers": [
-            {
-              "color": "#9e9e9e"
-            }
-          ]
-        },
-        {
-          "featureType": "administrative.locality",
-          "elementType": "labels.text.fill",
-          "stylers": [
-            {
-              "color": "#bdbdbd"
-            }
-          ]
-        },
-        {
-          "featureType": "poi",
-          "elementType": "labels.text.fill",
-          "stylers": [
-            {
-              "color": "#757575"
-            }
-          ]
-        },
-        {
-          "featureType": "poi.park",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#181818"
-            }
-          ]
-        },
-        {
-          "featureType": "poi.park",
-          "elementType": "labels.text.fill",
-          "stylers": [
-            {
-              "color": "#616161"
-            }
-          ]
-        },
-        {
-          "featureType": "poi.park",
-          "elementType": "labels.text.stroke",
-          "stylers": [
-            {
-              "color": "#1b1b1b"
-            }
-          ]
-        },
-        {
-          "featureType": "road",
-          "elementType": "geometry.fill",
-          "stylers": [
-            {
-              "color": "#2c2c2c"
-            }
-          ]
-        },
-        {
-          "featureType": "road",
-          "elementType": "labels.text.fill",
-          "stylers": [
-            {
-              "color": "#8a8a8a"
-            }
-          ]
-        },
-        {
-          "featureType": "road.arterial",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#373737"
-            }
-          ]
-        },
-        {
-          "featureType": "road.highway",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#3c3c3c"
-            }
-          ]
-        },
-        {
-          "featureType": "road.highway.controlled_access",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#4e4e4e"
-            }
-          ]
-        },
-        {
-          "featureType": "road.local",
-          "elementType": "labels.text.fill",
-          "stylers": [
-            {
-              "color": "#616161"
-            }
-          ]
-        },
-        {
-          "featureType": "transit",
-          "elementType": "labels.text.fill",
-          "stylers": [
-            {
-              "color": "#757575"
-            }
-          ]
-        },
-        {
-          "featureType": "water",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#000000"
-            }
-          ]
-        },
-        {
-          "featureType": "water",
-          "elementType": "labels.text.fill",
-          "stylers": [
-            {
-              "color": "#3d3d3d"
-            }
-          ]
-        }
-      ],
-      {name: 'Styled Map'});
-      
+
       const mapEle = this.mapElement.nativeElement;
 
+      var heatMapData = [
+        {location: new googleMaps.LatLng(19.305748, 30.455453), weight: 11},
+        new googleMaps.LatLng(19.285748, 30.455453),
+        {location: new googleMaps.LatLng(19.275748, 30.455453), weight: 21},
+        {location: new googleMaps.LatLng(19.265748, 30.455453), weight: 21},
+        {location: new googleMaps.LatLng(19.255748, 30.455453), weight: 21},
+        new googleMaps.LatLng(19.255748, 30.455453),
+        {location: new googleMaps.LatLng(19.235748,30.475453), weight: 12},
+      
+        {location: new googleMaps.LatLng(19.225748, 30.475453), weight: 15},
+        {location: new googleMaps.LatLng(19.215748, 30.485453), weight: 14},
+        new googleMaps.LatLng(19.205748, 30.455453),
+        {location: new googleMaps.LatLng(19.205748, 30.475453), weight: 10},
+        new googleMaps.LatLng(19.195748, 30.485453),
+        {location: new googleMaps.LatLng(19.195748, 30.475453), weight: 11},
+        {location: new googleMaps.LatLng(19.189547, 30.489442), weight: 10}
+      ];
+
        const map = new googleMaps.Map(mapEle, {
-        center: {lat: 46.7695547, lng: 23.5949514},
-        zoom: 16,
+        center: {lat: 19.230551, lng: 30.478903},
+        zoom: 12,
         pitch: 60, 
         bearing: -60,
         mapTypeControlOptions: {
@@ -223,9 +77,18 @@ export class MapPage implements AfterViewInit {
         }
       });
 
-      map.mapTypes.set('styled_map', styledMapType);
-      map.setMapTypeId('styled_map');
-     
+     // map.mapTypes.set('satellite', styledMapType);
+      map.setMapTypeId('satellite');
+
+      this.heatmap = new googleMaps.visualization.HeatmapLayer({
+        data: heatMapData,
+        radius:100
+      });
+
+    this.heatmap.set('gradient', this.gradient);
+
+    this.heatmap.setMap(map);
+    googleMaps.event.addListenerOnce(map, 'tilesloaded', this.modulateGradient(this.gradient, this.heatmap, this.gradientStep));
 
       this.map = map;
       googleMaps.event.addListener(this.map, 'click', function (event) {
@@ -274,6 +137,7 @@ export class MapPage implements AfterViewInit {
       var directionsDisplay = new googleMaps.DirectionsRenderer({
         map: this.map
       });
+      /*
       directionsDisplay.setOptions({suppressMarkers: true});
       directionsService.route({
         origin: {
@@ -303,7 +167,7 @@ export class MapPage implements AfterViewInit {
           window.alert('Directions request failed due to ' + status);
         }
       });
-      
+      */
       directionsDisplay.addListener('click', () => {
         if (directionsDisplay.getAnimation() !== null) {
           directionsDisplay.setAnimation(null);
@@ -324,7 +188,24 @@ drawPolyline(googleMaps) {
 
 }
 
+modulateGradient(gradient, heatmap, gradientStep) {
+  var modulator = function() {
+      var newGradient = gradient.slice(0, heatmap.get('gradient').length + gradientStep);
+      
+      if (newGradient.length == gradient.length || newGradient.length == 7) {
+          gradientStep *= -1;
+      }
+      
+      heatmap.set('gradient', newGradient);
+      
+      setTimeout(modulator, 100);
+  };
+  
+  setTimeout(modulator, 100);
 }
+
+}
+
 
 
 function getGoogleMaps(apiKey: string): Promise<any> {
@@ -336,7 +217,7 @@ function getGoogleMaps(apiKey: string): Promise<any> {
 
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=3.31`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=3.31&libraries=visualization`;
     script.async = true;
     script.defer = true;
     document.body.appendChild(script);
