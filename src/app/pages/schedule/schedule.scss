@@ -1,19 +1,13 @@
-$categories: (
-  ionic: var(--ion-color-primary),
-  angular: #ac282b,
-  communication: #8e8d93,
-  tooling: #fe4c52,
-  services: #fd8b2d,
-  design: #fed035,
-  workshop: #69bb7b,
-  food: #3bc7c4,
-  documentation: #b16be3,
-  navigation: #6600cc
-);
+.login-logo {
+  padding: 20px 0;
+  min-height: 200px;
+  text-align: center;
+}
 
-@each $track, $value in map-remove($categories) {
-  ion-item-sliding[track='#{$track}'] ion-label {
-    border-left: 2px solid $value;
-    padding-left: 10px;
-  }
+.login-logo img {
+  max-width: 150px;
+}
+
+.list {
+  margin-bottom: 0;
 }
