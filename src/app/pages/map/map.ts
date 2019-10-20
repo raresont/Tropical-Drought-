@@ -71,6 +71,7 @@ export class MapPage implements AfterViewInit {
         zoom: 12,
         pitch: 60, 
         bearing: -60,
+        disableDefaultUI: true,
         mapTypeControlOptions: {
           mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
                   'styled_map']
