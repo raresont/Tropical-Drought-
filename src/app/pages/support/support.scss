@@ -13,3 +13,40 @@
 .list {
   margin-bottom: 0;
 }
+
+.disasters {
+  margin: 16px 0;
+
+  .stats{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .icon-drought {
+      color: orange;
+    }
+
+    .icon-flood {
+      color: royalblue;
+    }
+
+    .header {
+      margin: 12px 0;
+    }
+
+    .description {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.chart{
+  margin-bottom: 16px;
+
+  .header {
+    margin-left: 8px;
+    margin-bottom: 8px;
+  }
+}

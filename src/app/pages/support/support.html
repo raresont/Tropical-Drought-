@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>History</ion-title>
+    <ion-title>Predictions</ion-title>
   </ion-toolbar>
 
 </ion-header>
@@ -25,25 +25,46 @@
   </ion-item>
   <ion-item>
     <ion-label position="floating">Season</ion-label>
-    <ion-input value="Summer"></ion-input>
+    <ion-input value="Summer - 2020"></ion-input>
     <ion-icon name="sunny" slot="end"></ion-icon>
   </ion-item>
   <ion-row>
     <ion-col col-3>
       <ion-item>
         <ion-label position="floating">Type</ion-label>
-        <ion-input value = "Area Harvested"></ion-input>
+        <ion-input value="Yield"></ion-input>
       </ion-item>
-      </ion-col>
-      <ion-col col-9>
-        <ion-item>
-  <ion-label position="floating">Items</ion-label>
-  <ion-input value = "Crops"></ion-input>
-  </ion-item>
-  </ion-col>
+    </ion-col>
+    <ion-col col-9>
+      <ion-item>
+        <ion-label position="floating">Items</ion-label>
+        <ion-input value="Maize"></ion-input>
+      </ion-item>
+    </ion-col>
   </ion-row>
-  <img src="assets/img/chart1.bmp">
-
+  <ion-row class="disasters">
+    <ion-col col-6>
+      <div class="stats">
+        <ion-icon size="large" class="icon-drought" name="sunny"></ion-icon>
+        <div class="header">Affected by droughts</div>
+        <div class="description">26.45%</div>
+      </div>
+    </ion-col>
+    <ion-col col-6>
+      <div class="stats">
+        <ion-icon size="large" class="icon-flood" name="rainy"></ion-icon>
+        <div class="header">Affected by floods</div>
+        <div class="description">15.04%</div>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row class="chart">
+    <ion-col col-12>
+      <div class="header">Production - Crops</div>
+      <img src="assets/img/chart1.png">
+    </ion-col>
+  </ion-row>
+  <!--
   <table class="table table-striped" style="padding-left:2vh;margin-left:2vh;">
     <thead>
       <tr>
@@ -86,6 +107,7 @@
       </tr>
     </tbody>
   </table>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
 
 </ion-content>
