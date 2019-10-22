@@ -15,10 +15,6 @@ const routes: Routes = [
           {
             path: '',
             component: SchedulePage,
-          },
-          {
-            path: 'session/:sessionId',
-            loadChildren: '../session-detail/session-detail.module#SessionDetailModule'
           }
         ]
       },
@@ -28,14 +24,6 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../speaker-list/speaker-list.module#SpeakerListModule'
-          },
-          {
-            path: 'session/:sessionId',
-            loadChildren: '../session-detail/session-detail.module#SessionDetailModule'
-          },
-          {
-            path: 'speaker-details/:speakerId',
-            loadChildren: '../speaker-detail/speaker-detail.module#SpeakerDetailModule'
           }
         ]
       },
